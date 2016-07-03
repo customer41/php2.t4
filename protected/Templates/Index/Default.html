@@ -1,6 +1,10 @@
 {% extends 'Index.html' %}
 
 {% block content %}
-    <h1>Hello, world!</h1>
-    <h2>It's T4 framework!</h2>
+    {% for item in items %}
+        <h2><a href="/index/news?id={{ item.getPk() }}">{{ item.title }}</a></h2>
+        <p>{{ item.text }}... <a href="/index/news?id={{ item.getPk() }}">читать&nbsp;далее</a></p>
+        <small>Дата публикации: {{ item.time }}</small>
+        <hr>
+    {% endfor %}
 {% endblock %}

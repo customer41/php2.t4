@@ -10,4 +10,8 @@ return [
             'dbname' => 't4',
         ],
     ],
+
+    'project' => [
+        'title' => 'Фан-сайт группы No Doubt'
+    ],
 ];

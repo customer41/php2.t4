@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#container, #footer {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#menu, #content {
+    height: auto;
+}
+
+#footer, #clear {
+    height: 100px;
+}
+
+#header, #footer {
+    background-color: #aec4de;
+}
+
+#container {
+    min-height: 100%;
+    background-color: #F1F1E3;
+}
+
+#header {
+    background-image: url('/images/main/header.jpeg');
+    height: 500px;
+    font-size: 2em;
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#menu {
+    width: 200px;
+    float: left;
+}
+
+#content {
+    margin-left: 200px;
+}
+
+#footer {
+    margin-top: -100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+img {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.button {
+    text-decoration: none;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
+input[type="text"] {
+    width: 400px;
+}

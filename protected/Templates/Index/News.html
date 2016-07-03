@@ -1,0 +1,8 @@
+{% extends 'Index.html' %}
+
+{% block content %}
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.text }}</p>
+    <small>Дата публикации: {{ item.time }}</small>
+    <hr>
+{% endblock %}

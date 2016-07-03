@@ -1,0 +1,11 @@
+{% extends 'Index.html' %}
+
+{% block content %}
+    <form action="/admin/edit?id={{ item.getPk() }}" method="post">
+        <label for="title">Заголовок новости: </label><br>
+        <input type="text" id="title" name="title" value="{{ item.title }}"><br>
+        <label for="text">Содержание новости: </label><br>
+        <textarea id="text" name="text" cols="50" rows="10">{{ item.text }}</textarea><br>
+        <input type="submit" value="Редактировать новость">
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'Index.html' %}
+
+{% block content %}
+    <form action="/admin/add" method="post">
+        <label for="title">Заголовок новости: </label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="text">Содержание новости: </label><br>
+        <textarea id="text" name="text" cols="50" rows="10"></textarea><br>
+        <input type="submit" value="Добавить новость">
+    </form>
+{% endblock %}

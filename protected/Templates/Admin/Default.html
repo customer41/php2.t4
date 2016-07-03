@@ -1,0 +1,15 @@
+{% extends 'Index.html' %}
+
+{% block content %}
+    {% for item in items %}
+        <h2><a href="/admin/news?id={{ item.getPk() }}">{{ item.title }}</a></h2>
+        <p>{{ item.text }}... <a href="/admin/news?id={{ item.getPk() }}">читать&nbsp;далее</a></p>
+        <small>Дата публикации: {{ item.time }}</small>
+        <p>
+            <a href="/admin/add" class="button">Добавить</a>
+            <a href="/admin/edit?id={{ item.getPk() }}" class="button">Редактировать</a>
+            <a href="/admin/delete?id={{ item.getPk() }}" class="button">Удалить</a>
+        </p>
+        <hr>
+    {% endfor %}
+{% endblock %}
