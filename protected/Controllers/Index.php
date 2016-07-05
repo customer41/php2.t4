@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Components\Text;
 use App\Models\Band;
 use App\Models\News;
+use T4\Http\E404Exception;
 use T4\Mvc\Controller;
 
 class Index
@@ -18,12 +19,17 @@ class Index
         foreach ($items as $item) {
             $item->text = $text->trimText($item->text, 200);
         }
+        $this->data->count = count($items);
         $this->data->items = $items;
     }
 
     public function actionNews($id)
     {
-        $this->data->item = News::findByPK($id);
+        $item = News::findByPK($id);
+        if (false == $item) {
+            throw new E404Exception();
+        }
+        $this->data->item = $item;
     }
     
     public function actionBand()
@@ -38,7 +44,10 @@ class Index
 
     public function actionArtist($id)
     {
-        $this->data->item = Band::findByPK($id);
+        $item = Band::findByPK($id);
+        if (false == $item) {
+            throw new E404Exception();
+        }
+        $this->data->item = $item;
     }
-
 }

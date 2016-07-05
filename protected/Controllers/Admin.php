@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Components\Text;
 use App\Models\News;
+use T4\Http\E404Exception;
 use T4\Mvc\Controller;
 
 class Admin
@@ -16,16 +17,25 @@ class Admin
         foreach ($items as $item) {
             $item->text = $text->trimText($item->text, 200);
         }
+        $this->data->count = count($items);
         $this->data->items = $items;
     }
 
     public function actionNews($id)
     {
-        $this->data->item = News::findByPK($id);
+        $item = News::findByPK($id);
+        if (false == $item) {
+            throw new E404Exception();
+        }
+        $this->data->item = $item;
     }
 
     public function actionDelete($id)
     {
+        $item  = News::findByPK($id);
+        if (false == $item) {
+            throw new E404Exception();
+        }
         News::findByPK($id)->delete();
         $this->redirect('/admin/default');
     }
@@ -44,6 +54,9 @@ class Admin
     public function actionEdit($id)
     {
         $item = News::findByPK($id);
+        if (false == $item) {
+            throw new E404Exception();
+        }
         if (!empty($_POST)) {
             $item->fill($_POST);
             $item->save();

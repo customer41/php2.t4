@@ -1,6 +1,7 @@
 {% extends 'Index.html' %}
 
 {% block content %}
+    <p>Состав группы:</p>
     {% for item in items %}
         <h2><a href="/index/artist?id={{ item.getPk() }}">{{ item.name }}</a></h2>
         <p>{{ item.biography }}... <a href="/index/artist?id={{ item.getPk() }}">подробная&nbsp;биография</a></p>

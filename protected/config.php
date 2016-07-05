@@ -14,4 +14,8 @@ return [
     'project' => [
         'title' => 'Фан-сайт группы No Doubt'
     ],
+
+    'errors' => [
+        404 => '//Errors/404',
+    ],
 ];
